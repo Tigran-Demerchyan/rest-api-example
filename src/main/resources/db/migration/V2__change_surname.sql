@@ -1,0 +1,1 @@
+ALTER TABLE public.employees RENAME COLUMN surname TO lastname;
