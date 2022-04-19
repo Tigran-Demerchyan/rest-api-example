@@ -50,6 +50,16 @@ public class EmployeeController {
     @PutMapping("/{id}")
     public void updateEmployee(@RequestBody EmployeeFullDto dto, @PathVariable int id) {
 
-        service.updateEmp(dto,id);
+        service.updateEmp(dto, id);
+    }
+
+    @GetMapping("/byAge/{age}")
+    public List<Employee> showEmpByAge(@PathVariable int age) {
+        return service.findByAge(age);
+    }
+
+    @GetMapping("/byName/{name}")
+    public List<Employee> showEmpByName(@PathVariable String name) {
+        return service.findEmployeesByName(name);
     }
 }
