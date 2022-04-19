@@ -33,7 +33,11 @@ public class EmployeeService {
         manager.remove(byId);
     }
 
-    public void updateEmp(Employee byId) {
-        manager.merge(byId);
+    public void updateEmp(EmployeeFullDto dto, int id) {
+        Employee emp = getById(id);
+        emp.setFirstname(dto.getFirstname());
+        emp.setLastname(dto.getLastname());
+        emp.setAge(dto.getAge());
+        manager.merge(emp);
     }
 }
